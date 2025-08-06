@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 import Link from 'next/link';
 
 const NavBar = () => {
@@ -19,8 +18,8 @@ const NavBar = () => {
             <Link href="/login" className=' hidden md:block  bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded'>Login</Link>
             <Link href="/register" className='hidden md:block bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded ml-2'>Register</Link>
         </div>
+            
       </nav>
-
     </>
   ) 
 }
