@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <>
       <nav className='w-full px-5 flex justify-between items-center gap-7'>
-          <Image src="/logo.png" width={100} height={100} alt="Logo" className='cursor-pointer w-28 mr-4'/>
+          <Image src="/logo.png" width={100} height={100} alt="Logo" className='cursor-pointer mr-4'/>
        
         <ul className='flex justify-between items-center gap-4 lg:gap-8'>
           <li><Link href="/" className='hover:underline'>Home</Link></li>

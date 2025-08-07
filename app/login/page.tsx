@@ -23,7 +23,7 @@ const Login = () => {
 
       if (response.data.message?.toLowerCase().includes('success')) {
         setTimeout(() => {
-          router.push('/dashboard'); 
+          router.push('/hotel'); 
         }, 1500);
       }
 
@@ -42,7 +42,7 @@ const Login = () => {
         <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
 
         {message && (
-          <div
+          <div 
             className={`mb-4 text-center text-sm p-2 rounded ${
               message.toLowerCase().includes('success')
                 ? 'text-green-600 bg-green-100'
@@ -84,6 +84,7 @@ const Login = () => {
           >
             Log In
           </button>
+          <p>dont have an account? <a href="/register" className="text-blue-500 hover:underline">Register</a></p>
         </form>
       </div>
     </div>

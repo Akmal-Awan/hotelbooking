@@ -29,6 +29,9 @@ const Register = () => {
         setEmail('');
         setPassword('');
         setName('');
+        setTimeout(() => {
+          router.push('/login'); 
+        }, 1500);
       }
     } catch (error: unknown) {
       if (axios.isAxiosError(error) && error.response) {
@@ -95,6 +98,7 @@ const Register = () => {
           >
             Register
           </button>
+          <p>have an account? <a href="/login" className="text-green-500 hover:underline">Login</a></p>
         </form>
       </div>
     </div>
