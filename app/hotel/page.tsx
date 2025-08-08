@@ -1,7 +1,9 @@
 import React from 'react'
+import HotelCardSection from '../hotelcard/page'
 
 const page = () => {
   return (
+    <>
     <div className='flex flex-col items-center justify-center h-screen bg-cover bg-center' style={{ backgroundImage: 'url(/about-bg.jpg)' }}>
       <h1 className='text-4xl font-bold text-blue-600'>Hotel Booking</h1>
       <p className='text-lg text-white'>Find the best hotels at the best prices.</p>
@@ -36,6 +38,11 @@ const page = () => {
         </button>
     </form>
     </div>
+
+    <HotelCardSection />
+
+    </>
+
   )
 }
 
