@@ -31,7 +31,7 @@ const Register = () => {
         setName('');
         setTimeout(() => {
           router.push('/login'); 
-        }, 1500);
+        }, 1000);
       }
     } catch (error: unknown) {
       if (axios.isAxiosError(error) && error.response) {

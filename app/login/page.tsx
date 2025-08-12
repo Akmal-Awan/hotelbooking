@@ -1,13 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState<string | null>(null);
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,10 +21,15 @@ const Login = () => {
 
       setMessage(response.data.message || 'Login successful');
 
-      if (response.data.message?.toLowerCase().includes('success')) {
+      // RBAC      
+      if (response.data.user?.role) {
         setTimeout(() => {
-          router.push('/hotel'); 
-        }, 1500);
+          if (response.data.user.role === 'admin') {
+            router.push('/dashboard');
+          } else {
+            router.push('/hotel');
+          }
+        }, 1000);
       }
 
     } catch (error: unknown) {
@@ -42,7 +47,7 @@ const Login = () => {
         <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
 
         {message && (
-          <div 
+          <div
             className={`mb-4 text-center text-sm p-2 rounded ${
               message.toLowerCase().includes('success')
                 ? 'text-green-600 bg-green-100'
@@ -84,7 +89,12 @@ const Login = () => {
           >
             Log In
           </button>
-          <p>dont have an account? <a href="/register" className="text-blue-500 hover:underline">Register</a></p>
+          <p>
+            don’t have an account?{' '}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Register
+            </a>
+          </p>
         </form>
       </div>
     </div>

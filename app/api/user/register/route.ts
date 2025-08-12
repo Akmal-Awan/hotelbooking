@@ -7,9 +7,9 @@ export async function POST(req: Request) {
   try {
     await connectDB();
 
-    const { email, password, name, } = await req.json();
+    const { email, password, name } = await req.json();
 
-    if (!email || !password || !name ) {
+    if (!email || !password || !name) {
       return NextResponse.json({ message: "All fields are required" }, { status: 400 });
     }
 
@@ -24,6 +24,7 @@ export async function POST(req: Request) {
       email,
       password: hashedPassword,
       name,
+      role: "user", 
     });
 
     await newUser.save();
